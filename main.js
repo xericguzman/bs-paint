@@ -13,7 +13,7 @@
  * `grid-template-columns` to match.
  *
  * To make the second one happen, the number to change
- * is the first argument to repeat, currently set at 10.
+ * is the first argument to `repeat`, currently set at 10.
  */
 const gridWidth = 10;
 let count = 0;
@@ -25,6 +25,22 @@ while (count <= gridWidth * gridWidth) {
   count++;
 }
 
+// You probably should NOT do these in the order below.
+// That is, you probably should NOT do all the queries,
+// THEN all the functions,
+// THEN all the wiring.
+
+// Instead, it'll be easier if you go one action at a time!
+// So, add a query for the palette colors.
+// THEN add an event listener function for what happens when one is clicked.
+// THEN wire those two together, so that when the palette elements are clicked,
+// the function runs.
+//
+// And proceed from there to getting the squares working.
+//
+
+// ALSO.
+// You do not have to follow the sections below. If you're doing your functions inline, it doesn't make a lot of sense to separate the event listener functions from their wiring!
 
 /***********
  * QUERIES *
