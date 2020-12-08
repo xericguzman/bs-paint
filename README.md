@@ -25,30 +25,60 @@ We'll be checking what *classes* are present on those items in order to know wha
 
 Did you notice how all three sections listed above have `.color-${n}` classes on them or their elements? That brings us to the CSS, which has those classes, but no actual color assigned to them. Put some code in there to give `color-1` and `color-2` and so on each a background-color... but keep the same class names. That way we can change what `color-3` is any time we want, without having to change the name throughout the code from `purple` to `mauve`. Additionally, this drives home that we're not changing CSS directly... just classes!
 
-Once you've got those colors defined, it's on to functionality!
+Once you've got those colors defined, it's on to layout!
+
+
+### Flex All The Things
+
+This isn't a terribly complex layout, but it's in some ways perfectly suited to Flexbox; we want a single, centered column of elements. (For reference, see the hosted solution!)
+
+You've got a pretty good starting point, in that some previous engineer (before leaving to start his own company, no doubt!) has left behind some CSS to indicate the Flexbox code they were planning to write. You have several rules with `display: flex` in them, but no indication of what particular Flexbox properties they were planning to write.
+
+Your job will be to finish that job. Specifically: the `app` overall is clearly supposed to be one big column. The `headings` maybe too? What about `brush-selection` and `paint`? What alignment and justification rules should they all have, if any? Do your best to copy the layout of the solution, but also... feel free to make different choices!
 
 
 ### BS Paint's JavaScript
 
-It will be JavaScript's job to connect all the pieces logically, with event listeners and DOM manipulation galore. **We'll be using class tools to change the CSS here exclusively.** Do *not* use any `style` attributes! If we change the class on an element, it will get all the CSS rules from that class. Neat stuff!
+
+It will be JavaScript's job to connect all the pieces logically, with event listeners and DOM manipulation galore. **We'll be using class tools to change the CSS here exclusively.** Do *not* use any `.style` attributes! If we change the class on an element, it will get all the CSS rules from that class. Neat stuff!
 
 Here are some tools you can use:
 
+* For now, stick to `click` events. We can tackle cooler stuff in the next section!
 * `querySelectorAll` to grab all elements that match a certain selector
 * `addEventListener` to give an element a function it should run on click
 * `for of` loops (or `.forEach`?!) to give each element in a list its listener
 * `classList` and [its many awesome methods](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList#Methods). 4 out of 5 DOM manipulators recommend this tool. There are examples there, but do some research for an article specific to whatever method you want to use!
 
 
-### Hints
+### Hints On The Basic JS
 
 * The current color of every single element is its second class. That means it has a specific index. We can easily find out what the color the paintbrush currently is using this information.
 * We can use `.add` and `.remove` and `.toggle`, but the cleanest solution will involve `.replace`. Think about what the old class is on the element you wish to change, and what class you'd like to `.replace` it with. Check the docs in the above section for how to use it if you're unsure!
 
 
+### Good Luck!
+
+And may the BS be with you.
+
+
+### Adding The Ability To Paint With More Than Clicks
+
+It is highly advised that you get the above done first before you get clicking-and-dragging implemented!
+
+But assuming you've got that done, here we go!
+
+* We're going to need a separate function for handling mouseovers from handling just clicks. (This is because they're considered separate events from the DOM's perspective, and you can easily get a bug where they both fire and conflict if you're not careful!) For now, just copy your click-handling function exactly, but give it a new name that indicates we're going to handle mosueover.
+* Now wire it up to handle the event `mouseenter` (yes it has two `e`s in a row, no camelCase... sorry, not my fault on this particular name!) on each square in our canvas. If you check your app, it should now no longer require clicking to paint. You can just drag your mouse all over the place! Not QUITE what we wanted, but... pretty cool.
+* The tricky part is going to be keeping track of whether we've clicked or not. If we can do that, we can make sure that we ONLY change our squares' colors if the mouse was down when they were hovered over. Let's make a global, `let`-declared variable to keep track of whether the mouse is down or not. What should its initial value be? Well... is the mouse down when the app is loaded?
+* Now! Let's add an event listener for our entire app that runs on the event `mouseup`, that sets our global variable's value to `false` when it runs. Let's add the reverse for the event `mousedown`.
+* Finally (mostly), let's tell our hovering event listener to only do its thing if the mouse is currently clicked. Try it out! You should have a clicking-and-dragging, mostly bug-free painting experience.
+* But there is a small potential bug. If you click and hold for a moemnt, THEN drag, you may get what's caelld a "race conditon", where both the `click` and `mouseenter` event handlers run and try to edit the state of the app at the same time. We can avoid this through setting the is-the-mouse}own variable when the click-handling function runs. Surprisingly, we actually need to set it to `false` here; that's because by the time the function is running, the mouse will be down again.
+
+
 ### A Note On Canvas Size
 
-We have a 10x10 canvas right now, but you can add more if you'd like using the method outlined in the code comments.
+We have a 10x10 canvas right now, but you can add more if you'd like using the method outlined in the code comments!
 
 
 ### Stretch Goals
