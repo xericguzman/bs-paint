@@ -62,7 +62,9 @@ Here are some tools you can use:
 And may the BS be with you.
 
 
-### Adding The Ability To Paint With More Than Clicks
+### Some Not-Quite-Stretch-Goal Next Steps
+
+##### Adding The Ability To Paint With More Than Clicks
 
 It is highly advised that you get the above done first before you get clicking-and-dragging implemented!
 
@@ -76,12 +78,12 @@ But assuming you've got that done, here we go!
 * But there is a small potential bug. If you click and hold for a moemnt, THEN drag, you may get what's caelld a "race conditon", where both the `click` and `mouseenter` event handlers run and try to edit the state of the app at the same time. We can avoid this through setting the is-the-mouse}own variable when the click-handling function runs. Surprisingly, we actually need to set it to `false` here; that's because by the time the function is running, the mouse will be down again.
 
 
-### A Note On Canvas Size
+##### Changing Canvas Size
 
 We have a 10x10 canvas right now, but you can add more if you'd like using the method outlined in the code comments!
 
 
-### Stretch Goals
+### Actual Stretch Goals
 
 There are a lot of different directions you could take this project to stretch your developer wings. These don't all work together, and therefore are also not in any particular order. Do whatever sounds fun or challenging!
 
