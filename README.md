@@ -1,4 +1,4 @@
-# BS Paint
+# BudgetSoft Paint
 
 A very simple paint program.
 
@@ -36,13 +36,13 @@ Here are some tools you can use:
 
 * `querySelectorAll` to grab all elements that match a certain selector
 * `addEventListener` to give an element a function it should run on click
-* `for of` loops (or `.forEach`!) to give each element in a list its listener
+* `for of` loops (or `.forEach`?!) to give each element in a list its listener
 * `classList` and [its many awesome methods](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList#Methods). 4 out of 5 DOM manipulators recommend this tool. There are examples there, but do some research for an article specific to whatever method you want to use!
 
 
 ### Hints
 
-* The current color of every single element is its second class. That means it has a specific index. We can easily find out what the color of the paintbrush is when we need to apply it to a square using this information.
+* The current color of every single element is its second class. That means it has a specific index. We can easily find out what the color the paintbrush currently is using this information.
 * We can use `.add` and `.remove` and `.toggle`, but the cleanest solution will involve `.replace`. Think about what the old class is on the element you wish to change, and what class you'd like to `.replace` it with. Check the docs in the above section for how to use it if you're unsure!
 
 
