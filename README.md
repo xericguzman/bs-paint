@@ -23,7 +23,7 @@ First, the HTML. We have three sections:
 2. The brush.
 3. The canvas.
 
-We'll be checking what *classes* are present on those items in order to know what to do when the user clicks something. Did they click a color on the *palette*? The *brush* should get that color. Did they click the *canvas*? That canvas square should get the *brush*'s color. Pay careful attention to the logical flow of the app, and if you need some logical flow reference, [see the hosted solution to BS Paint](http://bs-paint-solution.surge.sh/).
+We'll be checking what *classes* are present on those items in order to know what to do when the user clicks something. Did they click a color on the *palette*? The *brush* should get that color. Did they click the *canvas*? That canvas square should get the *brush*'s color. Pay careful attention to the logical flow of the app, and if you need some logical flow reference, [see the hosted solution to BS Paint](https://ci-wdi-900.github.io/bs-paint/).
 
 Did you notice how all three sections listed above have `.color-${n}` classes on them or their elements? That brings us to the CSS, which has those classes, but no actual color assigned to them. Put some code in there to give `color-1` and `color-2` and so on each a background-color... but keep the same class names. That way we can change what `color-3` is any time we want, without having to change the name throughout the code from `purple` to `mauve`. Additionally, this drives home that we're not changing CSS directly... just classes!
 
