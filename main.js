@@ -1,5 +1,5 @@
 const gridWidth = 10;
-createCanvas("color-5");
+createCanvas("square color-5");
 const colors = document.querySelectorAll(".palette-color");
 const brush = document.querySelector(".current-brush");
 const canvas = document.querySelectorAll(".square");
